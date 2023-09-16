@@ -7,7 +7,11 @@ use Illuminate\Support\Facades\Storage;
 class ParseFile
 {
 
-    public static function parseJsonfile($fileName = 'affiliates.txt')
+    /**
+     * @param string $fileName
+     * @return mixed
+     */
+    public static function parseJsonfile(string $fileName = 'affiliates.txt'): mixed
     {
         $file = Storage::disk('local')->get(config('app.file_path') . $fileName);
         $file = str_replace("\n", ',', $file);

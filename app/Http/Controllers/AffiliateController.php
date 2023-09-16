@@ -7,18 +7,29 @@ use App\Models\Affiliate;
 use Illuminate\Http\Request;
 use App\Services\AffiliateServices;
 use App\Http\Requests\AffiliateSearchRequest;
+use Illuminate\View\View;
 
 class AffiliateController extends Controller
 {
 
+    /**
+     * @var AffiliateServices
+     */
     private $affiliateServices;
 
+    /**
+     * AffiliateController constructor.
+     * @param AffiliateServices $affiliateServices
+     */
     public function __construct(AffiliateServices $affiliateServices)
     {
         $this->affiliateServices = $affiliateServices;
     }
 
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function index()
     {
         return view('home', [
@@ -26,6 +37,10 @@ class AffiliateController extends Controller
         ]);
     }
 
+    /**
+     * @param AffiliateSearchRequest $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function list(AffiliateSearchRequest $request)
     {
         $officeVal = explode('_', $request->get('office'));

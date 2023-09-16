@@ -8,14 +8,28 @@ use App\Models\Affiliate;
 class AffiliateServices
 {
 
+    /**
+     * @var Affiliate
+     */
     private $affiliate;
 
+    /**
+     * AffiliateServices constructor.
+     * @param Affiliate $affiliate
+     */
     public function __construct(Affiliate $affiliate)
     {
         $this->affiliate = $affiliate;
     }
 
-    public function affiliatesFromOfficeDist(float $latitudeFrom, float $longitudeFrom, int $matchDis, string $sort = 'ASC')
+    /**
+     * @param float $latitudeFrom
+     * @param float $longitudeFrom
+     * @param int $matchDis
+     * @param string $sort
+     * @return array
+     */
+    public function affiliatesFromOfficeDist(float $latitudeFrom, float $longitudeFrom, int $matchDis, string $sort = 'ASC'): Array
     {
 
         $allAffiliates = $this->affiliate->getAffiliates();
@@ -43,10 +57,4 @@ class AffiliateServices
         return $matchDistanceArray;
     }
 
-
-
-    public function test()
-    {
-        return 'test';
-    }
 }

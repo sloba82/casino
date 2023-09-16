@@ -5,7 +5,14 @@ namespace App\Helpers;
 class Distance
 {
 
-    public static function getLocationDistance($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo)
+    /**
+     * @param float $latitudeFrom
+     * @param float $longitudeFrom
+     * @param float $latitudeTo
+     * @param float $longitudeTo
+     * @return float|int
+     */
+    public static function getLocationDistance(float $latitudeFrom, float $longitudeFrom, float $latitudeTo, float $longitudeTo): float|int
     {
         $earth_radius = 6378;
 
