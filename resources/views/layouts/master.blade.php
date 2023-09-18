@@ -51,7 +51,6 @@
                         if( response.status === 422 ){
                             let responseMessage = JSON.parse(response.responseText);
                             $.each( responseMessage.errors, function( key, value) {
-                                console.log('#'+key+'_error');
                                 $('#'+key+'_error').show()
                             });
                         }
